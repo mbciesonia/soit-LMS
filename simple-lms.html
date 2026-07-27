@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple LMS - Class Photos</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f9;
+    color: #222;
+    padding: 20px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  header h1 {
+    color: #2c3e50;
+    font-size: 28px;
+  }
+  header p {
+    color: #666;
+    margin-top: 5px;
+  }
+  .classes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .class-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 320px;
+  }
+  .class-card h2 {
+    color: #2980b9;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .notes-box {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 2px solid #eee;
+  }
+  .notes-box h3 {
+    color: #444;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .notes-box p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .photo-item {
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f0f0f0;
+  }
+  .photo-item img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .photo-item img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Lightbox (badi image dikhane ke liye) */
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .lightbox-overlay.active {
+    display: flex;
+  }
+  .lightbox-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 36px;
+    cursor: pointer;
+    line-height: 1;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📚 Simple LMS</h1>
+  <p>Class ke hisaab se photos</p>
+</header>
+
+<div class="classes-container">
+
+  <!-- CLASS 5 -->
+  <div class="class-card">
+    <h2>Class 5</h2>
+    <div class="gallery">
+      <div class="photo-item"><img src="photos/class5/1.png" alt="Class 5 photo 1"></div>
+      <div class="photo-item"><img src="photos/class5/2.jpg" alt="Class 5 photo 2"></div>
+      <div class="photo-item"><img src="photos/class5/3.jpg" alt="Class 5 photo 3"></div>
+      <div class="photo-item"><img src="photos/class5/4.jpg" alt="Class 5 photo 4"></div>
+    </div>
+
+    <!-- Yahan neeche apna text likhein -->
+    <div class="notes-box">
+      <h3>Notes / Jaankari</h3>
+      <p>Yahan apna text likhein. Jaise: "Class 5 ke bachon ka annual function ki photos hain."</p>
+    </div>
+  </div>
+
+  <!-- CLASS 6 -->
+  <div class="class-card">
+    <h2>Class 6</h2>
+    <div class="gallery">
+      <div class="photo-item"><img src="photos/class6/1.jpg" alt="Class 6 photo 1"></div>
+      <div class="photo-item"><img src="photos/class6/2.jpg" alt="Class 6 photo 2"></div>
+      <div class="photo-item"><img src="photos/class6/3.jpg" alt="Class 6 photo 3"></div>
+      <div class="photo-item"><img src="photos/class6/4.jpg" alt="Class 6 photo 4"></div>
+    </div>
+
+    <!-- Yahan neeche apna text likhein -->
+    <div class="notes-box">
+      <h3>Notes / Jaankari</h3>
+      <p>Yahan apna text likhein. Jaise: "Class 6 ki science fair ki photos hain."</p>
+    </div>
+  </div>
+
+  <!-- CLASS 7 -->
+  <div class="class-card">
+    <h2>Class 7</h2>
+    <div class="gallery">
+      <div class="photo-item"><img src="photos/class7/1.jpg" alt="Class 7 photo 1"></div>
+      <div class="photo-item"><img src="photos/class7/2.jpg" alt="Class 7 photo 2"></div>
+      <div class="photo-item"><img src="photos/class7/3.jpg" alt="Class 7 photo 3"></div>
+      <div class="photo-item"><img src="photos/class7/4.jpg" alt="Class 7 photo 4"></div>
+    </div>
+
+    <!-- Yahan neeche apna text likhein -->
+    <div class="notes-box">
+      <h3>Notes / Jaankari</h3>
+      <p>Yahan apna text likhein. Jaise: "Class 7 ki sports day ki photos hain."</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Lightbox: image click karne par yahan badi dikhegi -->
+<div class="lightbox-overlay" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">&times;</span>
+  <img id="lightboxImg" src="" alt="Badi photo">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  // Sabhi gallery images par click event lagao
+  document.querySelectorAll('.gallery img').forEach(function(img) {
+    img.addEventListener('click', function() {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    });
+  });
+
+  // Close button ya bahar click karne par band ho jaye
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+  }
+</script>
+
+</body>
+</html>
